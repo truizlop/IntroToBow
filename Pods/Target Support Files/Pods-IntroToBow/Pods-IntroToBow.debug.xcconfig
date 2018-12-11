@@ -1,0 +1,10 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Bow" "${PODS_CONFIGURATION_BUILD_DIR}/BowBrightFutures" "${PODS_CONFIGURATION_BUILD_DIR}/BowEffects" "${PODS_CONFIGURATION_BUILD_DIR}/BowResult" "${PODS_CONFIGURATION_BUILD_DIR}/BowRx" "${PODS_CONFIGURATION_BUILD_DIR}/BrightFutures" "${PODS_CONFIGURATION_BUILD_DIR}/Result" "${PODS_CONFIGURATION_BUILD_DIR}/RxAtomic" "${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa" "${PODS_CONFIGURATION_BUILD_DIR}/RxSwift"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Bow/Bow.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BowBrightFutures/BowBrightFutures.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BowEffects/BowEffects.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BowResult/BowResult.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BowRx/BowRx.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BrightFutures/BrightFutures.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Result/Result.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RxAtomic/RxAtomic.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa/RxCocoa.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RxSwift/RxSwift.framework/Headers"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks' '@executable_path/../../Frameworks'
+OTHER_LDFLAGS = $(inherited) -framework "Bow" -framework "BowBrightFutures" -framework "BowEffects" -framework "BowResult" -framework "BowRx" -framework "BrightFutures" -framework "Result" -framework "RxAtomic" -framework "RxCocoa" -framework "RxSwift"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

@@ -1,0 +1,6 @@
+framework module Bow {
+  umbrella header "Bow-umbrella.h"
+
+  export *
+  module * { export * }
+}

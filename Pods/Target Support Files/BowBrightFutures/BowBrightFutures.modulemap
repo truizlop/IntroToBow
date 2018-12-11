@@ -1,0 +1,6 @@
+framework module BowBrightFutures {
+  umbrella header "BowBrightFutures-umbrella.h"
+
+  export *
+  module * { export * }
+}

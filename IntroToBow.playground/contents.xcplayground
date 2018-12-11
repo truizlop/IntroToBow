@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered' executeOnSourceChanges='false' last-migration='1010'>
+    <pages>
+        <page name='1. Function Composition'/>
+        <page name='2. Data Types'/>
+        <page name='3. Effects'/>
+        <page name='4. Higher Kinds and Typeclasses'/>
+        <page name='5. Polymorphic programs'/>
+        <page name='6. Conclusions'/>
+    </pages>
+</playground>

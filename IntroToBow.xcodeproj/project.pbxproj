@@ -7,28 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11447A3721997FEA00ABECE8 /* IntroToBow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11447A2D21997FE900ABECE8 /* IntroToBow.framework */; };
-		11447A3C21997FEA00ABECE8 /* IntroToBowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11447A3B21997FEA00ABECE8 /* IntroToBowTests.swift */; };
 		11447A3E21997FEA00ABECE8 /* IntroToBow.h in Headers */ = {isa = PBXBuildFile; fileRef = 11447A3021997FE900ABECE8 /* IntroToBow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11447A49219984D900ABECE8 /* Bow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11447A48219984D900ABECE8 /* Bow.swift */; };
+		B008E99A4B426DA3E9D642D7 /* Pods_IntroToBow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A855F90361B58B2895C39C /* Pods_IntroToBow.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		11447A3821997FEA00ABECE8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 11447A2421997FE900ABECE8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 11447A2C21997FE900ABECE8;
-			remoteInfo = IntroToBow;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		11447A2D21997FE900ABECE8 /* IntroToBow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IntroToBow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11447A3021997FE900ABECE8 /* IntroToBow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroToBow.h; sourceTree = "<group>"; };
 		11447A3121997FE900ABECE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11447A3621997FEA00ABECE8 /* IntroToBowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntroToBowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		11447A3B21997FEA00ABECE8 /* IntroToBowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroToBowTests.swift; sourceTree = "<group>"; };
-		11447A3D21997FEA00ABECE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11447A47219984C000ABECE8 /* IntroToBow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = IntroToBow.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		11447A48219984D900ABECE8 /* Bow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bow.swift; sourceTree = "<group>"; };
+		282ECE12AC12317F23FF64D5 /* Pods-IntroToBow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntroToBow.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntroToBow/Pods-IntroToBow.release.xcconfig"; sourceTree = "<group>"; };
+		40A855F90361B58B2895C39C /* Pods_IntroToBow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntroToBow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		594C60D596E54169D5C1A8E3 /* Pods-IntroToBow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntroToBow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntroToBow/Pods-IntroToBow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,14 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		11447A3321997FE900ABECE8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				11447A3721997FEA00ABECE8 /* IntroToBow.framework in Frameworks */,
+				B008E99A4B426DA3E9D642D7 /* Pods_IntroToBow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,8 +39,9 @@
 			isa = PBXGroup;
 			children = (
 				11447A2F21997FE900ABECE8 /* IntroToBow */,
-				11447A3A21997FEA00ABECE8 /* IntroToBowTests */,
 				11447A2E21997FE900ABECE8 /* Products */,
+				AD88AEE7DA8DAD18CB6A3C22 /* Pods */,
+				FEC6F5CB5F8227E0D9C12911 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				11447A2D21997FE900ABECE8 /* IntroToBow.framework */,
-				11447A3621997FEA00ABECE8 /* IntroToBowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,19 +56,29 @@
 		11447A2F21997FE900ABECE8 /* IntroToBow */ = {
 			isa = PBXGroup;
 			children = (
+				11447A47219984C000ABECE8 /* IntroToBow.playground */,
 				11447A3021997FE900ABECE8 /* IntroToBow.h */,
 				11447A3121997FE900ABECE8 /* Info.plist */,
+				11447A48219984D900ABECE8 /* Bow.swift */,
 			);
 			path = IntroToBow;
 			sourceTree = "<group>";
 		};
-		11447A3A21997FEA00ABECE8 /* IntroToBowTests */ = {
+		AD88AEE7DA8DAD18CB6A3C22 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				11447A3B21997FEA00ABECE8 /* IntroToBowTests.swift */,
-				11447A3D21997FEA00ABECE8 /* Info.plist */,
+				594C60D596E54169D5C1A8E3 /* Pods-IntroToBow.debug.xcconfig */,
+				282ECE12AC12317F23FF64D5 /* Pods-IntroToBow.release.xcconfig */,
 			);
-			path = IntroToBowTests;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FEC6F5CB5F8227E0D9C12911 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40A855F90361B58B2895C39C /* Pods_IntroToBow.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11447A4121997FEA00ABECE8 /* Build configuration list for PBXNativeTarget "IntroToBow" */;
 			buildPhases = (
+				F935CD062B2DA2036F184E00 /* [CP] Check Pods Manifest.lock */,
 				11447A2821997FE900ABECE8 /* Headers */,
 				11447A2921997FE900ABECE8 /* Sources */,
 				11447A2A21997FE900ABECE8 /* Frameworks */,
@@ -118,24 +114,6 @@
 			productReference = 11447A2D21997FE900ABECE8 /* IntroToBow.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		11447A3521997FE900ABECE8 /* IntroToBowTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 11447A4421997FEA00ABECE8 /* Build configuration list for PBXNativeTarget "IntroToBowTests" */;
-			buildPhases = (
-				11447A3221997FE900ABECE8 /* Sources */,
-				11447A3321997FE900ABECE8 /* Frameworks */,
-				11447A3421997FE900ABECE8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				11447A3921997FEA00ABECE8 /* PBXTargetDependency */,
-			);
-			name = IntroToBowTests;
-			productName = IntroToBowTests;
-			productReference = 11447A3621997FEA00ABECE8 /* IntroToBowTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -148,9 +126,7 @@
 				TargetAttributes = {
 					11447A2C21997FE900ABECE8 = {
 						CreatedOnToolsVersion = 10.1;
-					};
-					11447A3521997FE900ABECE8 = {
-						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -167,7 +143,6 @@
 			projectRoot = "";
 			targets = (
 				11447A2C21997FE900ABECE8 /* IntroToBow */,
-				11447A3521997FE900ABECE8 /* IntroToBowTests */,
 			);
 		};
 /* End PBXProject section */
@@ -180,40 +155,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		11447A3421997FE900ABECE8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F935CD062B2DA2036F184E00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IntroToBow-checkManifestLockResult.txt",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11447A2921997FE900ABECE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		11447A3221997FE900ABECE8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				11447A3C21997FEA00ABECE8 /* IntroToBowTests.swift in Sources */,
+				11447A49219984D900ABECE8 /* Bow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		11447A3921997FEA00ABECE8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 11447A2C21997FE900ABECE8 /* IntroToBow */;
-			targetProxy = 11447A3821997FEA00ABECE8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		11447A3F21997FEA00ABECE8 /* Debug */ = {
@@ -340,7 +318,9 @@
 		};
 		11447A4221997FEA00ABECE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 594C60D596E54169D5C1A8E3 /* Pods-IntroToBow.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.truizlop.IntroToBow;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,7 +345,9 @@
 		};
 		11447A4321997FEA00ABECE8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282ECE12AC12317F23FF64D5 /* Pods-IntroToBow.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -381,40 +364,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.truizlop.IntroToBow;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		11447A4521997FEA00ABECE8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IntroToBowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.truizlop.IntroToBowTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		11447A4621997FEA00ABECE8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IntroToBowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.truizlop.IntroToBowTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -437,15 +386,6 @@
 			buildConfigurations = (
 				11447A4221997FEA00ABECE8 /* Debug */,
 				11447A4321997FEA00ABECE8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		11447A4421997FEA00ABECE8 /* Build configuration list for PBXNativeTarget "IntroToBowTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				11447A4521997FEA00ABECE8 /* Debug */,
-				11447A4621997FEA00ABECE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
