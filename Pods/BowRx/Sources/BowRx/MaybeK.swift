@@ -61,8 +61,8 @@ public class MaybeK<A> : MaybeKOf<A> {
         return value.map(f).k()
     }
     
-    public func ap<B>(_ fa : MaybeKOf<(A) -> B>) -> MaybeK<B> {
-        return flatMap { a in fa.fix().map{ ff in ff(a) } }
+    public func ap<AA, B>(_ fa : MaybeKOf<AA>) -> MaybeK<B> where A == (AA) -> B {
+        return fa.fix().flatMap { a in self.map{ ff in ff(a) } }
     }
     
     public func flatMap<B>(_ f : @escaping (A) -> MaybeK<B>) -> MaybeK<B> {
@@ -168,8 +168,8 @@ public class MaybeKApplicative : MaybeKFunctor, Applicative {
         return MaybeK.pure(a)
     }
     
-    public func ap<A, B>(_ fa: MaybeKOf<A>, _ ff: MaybeKOf<(A) -> B>) -> MaybeKOf<B> {
-        return fa.fix().ap(ff)
+    public func ap<A, B>(_ ff: MaybeKOf<(A) -> B>, _ fa: MaybeKOf<A>) -> MaybeKOf<B> {
+        return ff.fix().ap(fa)
     }
 }
 
@@ -186,11 +186,11 @@ public class MaybeKMonad : MaybeKApplicative, Monad {
 public class MaybeKFoldable : Foldable {
     public typealias F = ForMaybeK
     
-    public func foldL<A, B>(_ fa: MaybeKOf<A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
+    public func foldLeft<A, B>(_ fa: MaybeKOf<A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
         return fa.fix().foldLeft(b, f)
     }
     
-    public func foldR<A, B>(_ fa: MaybeKOf<A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
+    public func foldRight<A, B>(_ fa: MaybeKOf<A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
         return fa.fix().foldRight(b, f)
     }
 }

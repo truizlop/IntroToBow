@@ -56,11 +56,11 @@ public class Either<A, B> : EitherOf<A, B> {
         return fold({ _ in fatalError("Attempted to obtain rightValue on a left instance") }, id)
     }
     
-    public func foldL<C>(_ c : C, _ f : (C, B) -> C) -> C {
+    public func foldLeft<C>(_ c : C, _ f : (C, B) -> C) -> C {
         return fold(constant(c), { b in f(c, b) })
     }
     
-    public func foldR<C>(_ c : Eval<C>, _ f : (B, Eval<C>) -> Eval<C>) -> Eval<C> {
+    public func foldRight<C>(_ c : Eval<C>, _ f : (B, Eval<C>) -> Eval<C>) -> Eval<C> {
         return fold(constant(c), { b in f(b, c) })
     }
     
@@ -78,8 +78,8 @@ public class Either<A, B> : EitherOf<A, B> {
                     { b in Either<C, D>.right(fb(b)) })
     }
     
-    public func ap<C>(_ ff : Either<A, (B) -> C>) -> Either<A, C> {
-        return ff.flatMap{ f in self.map(f) }
+    public func ap<BB, C>(_ fb : Either<A, BB>) -> Either<A, C> where B == (BB) -> C {
+        return flatMap(fb.map)
     }
     
     public func flatMap<C>(_ f : (B) -> Either<A, C>) -> Either<A, C> {
@@ -181,6 +181,18 @@ public extension Either {
     public static func eq<EqL, EqR>(_ eql : EqL, _ eqr : EqR) -> EitherEq<A, B, EqL, EqR> {
         return EitherEq<A, B, EqL, EqR>(eql, eqr)
     }
+
+    public static func bifunctor() -> EitherBifunctor<A, B> {
+        return EitherBifunctor<A, B>()
+    }
+}
+
+public class EitherBifunctor<A, B>: Bifunctor {
+    public typealias F = ForEither
+
+    public func bimap<A, B, C, D>(_ fab: Kind2<ForEither, A, B>, _ f1: @escaping (A) -> C, _ f2: @escaping (B) -> D) -> Kind2<ForEither, C, D> {
+        return Either.fix(fab).bimap(f1, f2)
+    }
 }
 
 public class EitherApplicative<C> : Applicative {
@@ -190,8 +202,8 @@ public class EitherApplicative<C> : Applicative {
         return Either<C, A>.pure(a)
     }
     
-    public func ap<A, B>(_ fa: EitherOf<C, A>, _ ff: EitherOf<C, (A) -> B>) -> EitherOf<C, B> {
-        return Either.fix(fa).ap(Either.fix(ff))
+    public func ap<A, B>(_ ff: EitherOf<C, (A) -> B>, _ fa: EitherOf<C, A>) -> EitherOf<C, B> {
+        return Either.fix(ff).ap(Either.fix(fa))
     }
 }
 
@@ -220,12 +232,12 @@ public class EitherMonadError<C> : EitherMonad<C>, MonadError {
 public class EitherFoldable<C> : Foldable {
     public typealias F = EitherPartial<C>
     
-    public func foldL<A, B>(_ fa: EitherOf<C, A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
-        return Either.fix(fa).foldL(b, f)
+    public func foldLeft<A, B>(_ fa: EitherOf<C, A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
+        return Either.fix(fa).foldLeft(b, f)
     }
     
-    public func foldR<A, B>(_ fa: EitherOf<C, A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
-        return Either.fix(fa).foldR(b, f)
+    public func foldRight<A, B>(_ fa: EitherOf<C, A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
+        return Either.fix(fa).foldRight(b, f)
     }
 }
 

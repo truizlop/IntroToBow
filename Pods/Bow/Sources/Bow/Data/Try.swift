@@ -62,12 +62,12 @@ public class Try<A> : TryOf<A> {
         }
     }
     
-    public func foldL<B>(_ b : B, _ f : (B, A) -> B) -> B {
+    public func foldLeft<B>(_ b : B, _ f : (B, A) -> B) -> B {
         return fold(constant(b),
                     { a in f(b, a) })
     }
     
-    public func foldR<B>(_ lb : Eval<B>, _ f : (A, Eval<B>) -> Eval<B>) -> Eval<B> {
+    public func foldRight<B>(_ lb : Eval<B>, _ f : (A, Eval<B>) -> Eval<B>) -> Eval<B> {
         return fold(constant(lb),
                     { a in f(a, lb) })
     }
@@ -85,8 +85,8 @@ public class Try<A> : TryOf<A> {
         return fold(Try<B>.raise, f)
     }
     
-    public func ap<B>(_ ff : Try<(A) -> B>) -> Try<B> {
-        return ff.flatMap(map)
+    public func ap<AA, B>(_ fa : Try<AA>) -> Try<B> where A == (AA) -> B {
+        return flatMap(fa.map)
     }
     
     public func filter(_ predicate : (A) -> Bool) -> Try<A> {
@@ -202,8 +202,8 @@ public class TryApplicative : TryFunctor, Applicative {
         return Try<A>.pure(a)
     }
     
-    public func ap<A, B>(_ fa: TryOf<A>, _ ff: TryOf<(A) -> B>) -> TryOf<B> {
-        return fa.fix().ap(ff.fix())
+    public func ap<A, B>(_ ff: TryOf<(A) -> B>, _ fa: TryOf<A>) -> TryOf<B> {
+        return ff.fix().ap(fa.fix())
     }
 }
 
@@ -248,12 +248,12 @@ public class TryEq<R, EqR> : Eq where EqR : Eq, EqR.A == R {
 public class TryFoldable : Foldable {
     public typealias F = ForTry
     
-    public func foldL<A, B>(_ fa: Kind<ForTry, A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
-        return fa.fix().foldL(b, f)
+    public func foldLeft<A, B>(_ fa: Kind<ForTry, A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
+        return fa.fix().foldLeft(b, f)
     }
     
-    public func foldR<A, B>(_ fa: Kind<ForTry, A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
-        return fa.fix().foldR(b, f)
+    public func foldRight<A, B>(_ fa: Kind<ForTry, A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
+        return fa.fix().foldRight(b, f)
     }
 }
 

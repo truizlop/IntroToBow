@@ -1,23 +1,23 @@
 PODS:
-  - Bow (0.2.0)
-  - BowBrightFutures (0.2.0):
-    - Bow (~> 0.2.0)
-    - BowEffects (~> 0.2.0)
-    - BowResult (~> 0.2.0)
+  - Bow (0.3.0)
+  - BowBrightFutures (0.3.0):
+    - Bow (~> 0.3.0)
+    - BowEffects (~> 0.3.0)
+    - BowResult (~> 0.3.0)
     - BrightFutures (~> 7.0.0)
-  - BowEffects (0.2.0):
-    - Bow (~> 0.2.0)
-  - BowResult (0.2.0):
-    - Bow (~> 0.2.0)
+  - BowEffects (0.3.0):
+    - Bow (~> 0.3.0)
+  - BowResult (0.3.0):
+    - Bow (~> 0.3.0)
     - Result (~> 4.0.0)
-  - BowRx (0.2.0):
-    - Bow (~> 0.2.0)
-    - BowEffects (~> 0.2.0)
+  - BowRx (0.3.0):
+    - Bow (~> 0.3.0)
+    - BowEffects (~> 0.3.0)
     - RxCocoa (~> 4.4.0)
     - RxSwift (~> 4.4.0)
   - BrightFutures (7.0.0):
     - Result (~> 4.0.0)
-  - Result (4.0.0)
+  - Result (4.0.1)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
@@ -25,11 +25,11 @@ PODS:
     - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
-  - Bow (~> 0.2.0)
-  - BowBrightFutures (~> 0.2.0)
-  - BowEffects (~> 0.2.0)
-  - BowResult (~> 0.2.0)
-  - BowRx (~> 0.2.0)
+  - Bow (~> 0.3.0)
+  - BowBrightFutures (~> 0.3.0)
+  - BowEffects (~> 0.3.0)
+  - BowResult (~> 0.3.0)
+  - BowRx (~> 0.3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -45,17 +45,17 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  Bow: 98457e65bfe48ee59d64241098eddd445a91d0ef
-  BowBrightFutures: c974283aa2ae98fdbae999ab906f041833962195
-  BowEffects: 15e8a824971c310e605b69aab5f781d8fd06093a
-  BowResult: b3ab60c2716b7f5534a7f56a7fab4758ce59fc46
-  BowRx: a311cfbc93e117476dabd274ab1c99631d483222
+  Bow: 00d66a7e26595923fc1b0aee922edaa84395b95d
+  BowBrightFutures: 0dd8554d0a187cb804fa211d966da175b41eb040
+  BowEffects: f42a3973cefc13a6745a2942a258a54126338e79
+  BowResult: ee70712825c33b565a68e12164eba1ebfb36f3f4
+  BowRx: d5cdf7380c339494d3062c9003dfd7ce0cf7a1c7
   BrightFutures: 7d7436e937dfc83d814c11920f157fc2a53f5bd5
-  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  Result: a6e784bebf48b471d59cddc1adb81f41f678c487
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: 70338be67cd3e3183b2d0e4478d40bb2578222a9
+PODFILE CHECKSUM: a29cf3f348aa297063e22cc4887239954ae35295
 
 COCOAPODS: 1.6.0.beta.2

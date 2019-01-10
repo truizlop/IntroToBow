@@ -85,18 +85,18 @@ public class Validated<E, A> : ValidatedOf<E, A> {
         return bimap(f, id)
     }
     
-    public func ap<B, SemiG>(_ ff : Validated<E, (A) -> B>, _ semigroup : SemiG) -> Validated<E, B> where SemiG : Semigroup, SemiG.A == E {
-        return fold({ e in ff.fold({ ee in Validated<E, B>.invalid(semigroup.combine(e, ee)) },
-                                   { _ in Validated<E, B>.invalid(e) }) },
-                    { a in ff.fold({ ee in Validated<E, B>.invalid(ee) },
-                                   { f in Validated<E, B>.valid(f(a)) }) })
+    public func ap<AA, B, SemiG>(_ fa : Validated<E, AA>, _ semigroup : SemiG) -> Validated<E, B> where SemiG : Semigroup, SemiG.A == E, A == (AA) -> B {
+        return fa.fold({ e in self.fold({ ee in Validated<E, B>.invalid(semigroup.combine(e, ee)) },
+                                        { _ in Validated<E, B>.invalid(e) }) },
+                       { a in self.fold({ ee in Validated<E, B>.invalid(ee) },
+                                        { f in Validated<E, B>.valid(f(a)) }) })
     }
     
-    public func foldL<B>(_ b : B, _ f : (B, A) -> B) -> B {
+    public func foldLeft<B>(_ b : B, _ f : (B, A) -> B) -> B {
         return fold(constant(b), { a in f(b, a) })
     }
     
-    public func foldR<B>(_ b : Eval<B>, _ f : (A, Eval<B>) -> Eval<B>) -> Eval<B>{
+    public func foldRight<B>(_ b : Eval<B>, _ f : (A, Eval<B>) -> Eval<B>) -> Eval<B>{
         return fold(constant(b), { a in f(a, b) })
     }
     
@@ -217,8 +217,8 @@ public class ValidatedApplicative<R, SemiG> : ValidatedFunctor<R>, Applicative w
         return Validated<R, A>.valid(a)
     }
     
-    public func ap<A, B>(_ fa: ValidatedOf<R, A>, _ ff: ValidatedOf<R, (A) -> B>) -> ValidatedOf<R, B> {
-        return Validated.fix(fa).ap(Validated.fix(ff), semigroup)
+    public func ap<A, B>(_ ff: ValidatedOf<R, (A) -> B>, _ fa: ValidatedOf<R, A>) -> ValidatedOf<R, B> {
+        return Validated.fix(ff).ap(Validated.fix(fa), semigroup)
     }
 }
 
@@ -237,12 +237,12 @@ public class ValidatedApplicativeError<R, SemiG> : ValidatedApplicative<R, SemiG
 public class ValidatedFoldable<R> : Foldable {
     public typealias F = ValidatedPartial<R>
     
-    public func foldL<A, B>(_ fa: ValidatedOf<R, A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
-        return Validated.fix(fa).foldL(b, f)
+    public func foldLeft<A, B>(_ fa: ValidatedOf<R, A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
+        return Validated.fix(fa).foldLeft(b, f)
     }
     
-    public func foldR<A, B>(_ fa: ValidatedOf<R, A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
-        return Validated.fix(fa).foldR(b, f)
+    public func foldRight<A, B>(_ fa: ValidatedOf<R, A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
+        return Validated.fix(fa).foldRight(b, f)
     }
 }
 

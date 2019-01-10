@@ -83,16 +83,16 @@ public class NonEmptyList<A> : NonEmptyListOf<A> {
         return f(head) + tail.flatMap{ a in f(a).all() }
     }
     
-    public func ap<B>(_ ff : NonEmptyList<(A) -> B>) -> NonEmptyList<B> {
-        return ff.flatMap(map)
+    public func ap<AA, B>(_ fa : NonEmptyList<AA>) -> NonEmptyList<B> where A == (AA) -> B {
+        return flatMap(fa.map)
     }
     
-    public func foldL<B>(_ b : B, _ f : (B, A) -> B) -> B {
+    public func foldLeft<B>(_ b : B, _ f : (B, A) -> B) -> B {
         return tail.reduce(f(b, head), f)
     }
     
-    public func foldR<B>(_ b : Eval<B>, _ f : @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
-        return ListK<A>.foldable().foldR(self.all().k(), b, f)
+    public func foldRight<B>(_ b : Eval<B>, _ f : @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
+        return ListK<A>.foldable().foldRight(self.all().k(), b, f)
     }
     
     public func traverse<G, B, Appl>(_ f : @escaping (A) -> Kind<G, B>, _ applicative : Appl) -> Kind<G, NonEmptyListOf<B>> where Appl : Applicative, Appl.F == G {
@@ -215,8 +215,8 @@ public class NonEmptyListApplicative : NonEmptyListFunctor, Applicative {
         return NonEmptyList.pure(a)
     }
     
-    public func ap<A, B>(_ fa: NonEmptyListOf<A>, _ ff: NonEmptyListOf<(A) -> B>) -> NonEmptyListOf<B> {
-        return fa.fix().ap(ff.fix())
+    public func ap<A, B>(_ ff: NonEmptyListOf<(A) -> B>, _ fa: NonEmptyListOf<A>) -> NonEmptyListOf<B> {
+        return ff.fix().ap(fa.fix())
     }
 }
 
@@ -244,12 +244,12 @@ public class NonEmptyListBimonad : NonEmptyListMonad, Bimonad {
 public class NonEmptyListFoldable : Foldable {
     public typealias F = ForNonEmptyList
     
-    public func foldL<A, B>(_ fa: NonEmptyListOf<A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
-        return fa.fix().foldL(b, f)
+    public func foldLeft<A, B>(_ fa: NonEmptyListOf<A>, _ b: B, _ f: @escaping (B, A) -> B) -> B {
+        return fa.fix().foldLeft(b, f)
     }
     
-    public func foldR<A, B>(_ fa: NonEmptyListOf<A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
-        return fa.fix().foldR(b, f)
+    public func foldRight<A, B>(_ fa: NonEmptyListOf<A>, _ b: Eval<B>, _ f: @escaping (A, Eval<B>) -> Eval<B>) -> Eval<B> {
+        return fa.fix().foldRight(b, f)
     }
 }
 

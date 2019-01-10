@@ -6,9 +6,9 @@ target 'IntroToBow' do
   use_frameworks!
 
   # Pods for IntroToBow
-  pod "Bow", "~> 0.2.0"
-  pod "BowEffects", "~> 0.2.0"
-  pod "BowResult", "~> 0.2.0"
-  pod "BowRx", "~> 0.2.0"
-  pod "BowBrightFutures", "~> 0.2.0"
+  pod "Bow", "~> 0.3.0"
+  pod "BowEffects", "~> 0.3.0"
+  pod "BowResult", "~> 0.3.0"
+  pod "BowRx", "~> 0.3.0"
+  pod "BowBrightFutures", "~> 0.3.0"
 end

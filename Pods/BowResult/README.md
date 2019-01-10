@@ -1,7 +1,7 @@
-# Bow
+<img height="100" src="https://avatars2.githubusercontent.com/u/44965417?s=200&v=4" width="100">
 
-[![Build Status](https://travis-ci.org/arrow-kt/bow.svg?branch=master)](https://travis-ci.org/arrow-kt/bow)
-[![codecov](https://codecov.io/gh/arrow-kt/bow/branch/master/graph/badge.svg)](https://codecov.io/gh/arrow-kt/bow)
+[![Build Status](https://travis-ci.org/bow-swift/bow.svg?branch=master)](https://travis-ci.org/bow-swift/bow)
+[![codecov](https://codecov.io/gh/bow-swift/bow/branch/master/graph/badge.svg)](https://codecov.io/gh/bow-swift/bow)
 [![Gitter](https://badges.gitter.im/arrow-kt/bow.svg)](https://gitter.im/arrow-kt/bow?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Bow is a library for Typed Functional Programming in Swift.
@@ -20,7 +20,68 @@ Bow is split in multiple modules that can be consumed independently. These modul
 - `BowBrightFutures`: module to provide an integration with BrightFutures.
 - `BowRx`: module to provide an integration with RxSwift.
 
-Bow is available using Cocoapods, Carthage and Swift Package Manager.
+Bow is available using CocoaPods, Carthage and Swift Package Manager.
+
+### CocoaPods
+
+You can consume each Bow module as a separate pod. You can add these lines to your Podfile at your convenience:
+
+```ruby
+pod "Bow", "~> 0.2.0"
+pod "BowOptics", "~> 0.2.0"
+pod "BowRecursionSchemes", "~> 0.2.0"
+pod "BowFree", "~> 0.2.0"
+pod "BowGeneric", "~> 0.2.0"
+pod "BowResult", "~> 0.2.0"
+pod "BowEffects", "~> 0.2.0"
+pod "BowRx", "~> 0.2.0"
+pod "BowBrightFutures", "~> 0.2.0"
+```
+
+### Carthage
+
+Carthage will download the whole Bow project, but it will compile individual frameworks for each module that you can use separately. Add this line to your Cartfile:
+
+```
+github "bow-swift/Bow" ~> 0.2.0
+```
+
+### Swift Package Manager
+
+Create a `Package.swift` file similar to the next one and use the dependencies at your convenience.
+
+```
+// swift-tools-version:4.0
+
+import PackageDescription
+
+let package = Package(
+    name: "BowTestProject",
+    dependencies: [
+        .package(url: "https://github.com/bow-swift/bow.git", from: "0.2.0")
+    ],
+    targets: [
+        .target(name: "BowTestProject",
+                dependencies: [
+                    "Bow",
+                    "BowOptics",
+                    "BowRecursionSchemes",
+                    "BowFree",
+                    "BowGeneric",
+                    "BowEffects",
+                    "BowResult",
+                    "BowRx",
+                    "BowBrightFutures"]
+        )
+    ]
+)
+```
+
+To build it, just run:
+
+```
+$ swift build
+```
 
 ## Contributing
 
