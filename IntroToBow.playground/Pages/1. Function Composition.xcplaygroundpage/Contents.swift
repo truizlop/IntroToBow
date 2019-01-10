@@ -176,12 +176,12 @@ class BirthdayCurrying {
                             >>> addDay
                             >>> subtract203
     
-    static func run2() -> Int {
+    static func run() -> Int {
         return guessBirthday(month)
     }
 }
 
-BirthdayCurrying.run2()
+BirthdayCurrying.run()
 /*:
  ## Partial application
  
