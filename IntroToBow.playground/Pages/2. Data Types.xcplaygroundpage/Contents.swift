@@ -31,13 +31,13 @@ divideOption(x: 2, y: 0)
  */
 let bowSome = Option<Int>.some(2)
 let bowNone = Option<String>.none()
-bowSome.toOption()
-bowNone.toOption()
+bowSome.toOptional()
+bowNone.toOptional()
 
 let nativeSome : Int? = 2
 let nativeNone : String? = nil
-Option.fromOption(nativeSome)
-Option.fromOption(nativeNone)
+Option.fromOptional(nativeSome)
+Option.fromOptional(nativeNone)
 /*:
  That means `Option` and `Optional` are **isomorphic**: there is a pair of functions (namely `toOption` and `fromOption`) that, when composed, their result is the **identity function**.
  
